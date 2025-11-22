@@ -1,12 +1,24 @@
 terraform {
   required_version = ">= 1.0"
+  
+  cloud {
+    organization = "test-log-collision"
+    
+    workspaces {
+      name = "log-collision-workspace"
+    }
+  }
 }
 
-# Simple output that doesn't require any resources
-output "test_message" {
-  value = "Hello from Terraform Cloud!"
+# Simple outputs to test logging
+output "test_output_1" {
+  value = "Testing log collision scenario"
 }
 
-output "timestamp" {
+output "test_output_2" {
+  value = "Multiple outputs for comprehensive logging"
+}
+
+output "current_time" {
   value = timestamp()
 }
